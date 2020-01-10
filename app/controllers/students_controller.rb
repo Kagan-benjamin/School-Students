@@ -1,4 +1,14 @@
 class StudentsController < ApplicationController
+  
+  def index
+    @students = Student.all
+    if params[:search]
+      @students = Student.search(params[:search]).order("created_at DESC")
+    else
+      @students = Student.all.order("created_at DESC")
+    end
+  end
+  
   def show
     @student = Student.find(params[:id])
   end

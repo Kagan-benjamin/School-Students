@@ -8,3 +8,8 @@
   <%end%>
 
 </ul>
+
+<%= form_tag(students_path, :method => "get", id: "search-form") do %>
+  Search by Student: <%= text_field_tag :search, params[:search], placeholder: "Search Students" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>

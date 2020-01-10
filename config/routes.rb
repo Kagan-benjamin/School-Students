@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get '/schools/:id', to: "schools#show", as: "school"
   
+  get '/students', to: "students#index", as: "students"
+  
   get '/students/new', to: "students#new"
 
   get '/students/:id/edit', to: "students#edit"

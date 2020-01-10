@@ -1,2 +1,12 @@
 <h1>School#show</h1>
-<p>Find me in app/views/school/show.html.erb</p>
+<% @students.select do |student| %>
+    
+        <% if student.school_id == @school.id %> 
+        <li>
+        <%= link_to student.name, student_path(student) %>
+        <%= button_to "delete", {:controller => :students,
+      :action => 'destroy', :id => student.id }, :method => :delete %>
+        </li>
+        <% end %> 
+    <% end %> 
+    
